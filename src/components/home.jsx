@@ -7,13 +7,17 @@ class Home extends Component {
       url: "https://picsum.photos/1200/700",
       alt: "Random image",
     },
-    array: [],
+    array: new Array(10)
   };
 
   colorHeadLine = {
     color: "red",
     fontSize: "2rem",
   };
+
+  cbClick() {
+    alert("opaa, that worked!");
+  }
 
   render() {
     const { url, alt } = this.state.image;
@@ -27,6 +31,7 @@ class Home extends Component {
           console.log(array);
           return <div key={index}>{item}</div>;
         })}
+        <button onClick={this.cbClick} className="btn btn-primary"> Func In CC </button>
       </div>
     );
   }
