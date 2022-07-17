@@ -1,6 +1,6 @@
 const FnWithArgSfc = () => {
     return (  
-        <button onClick={callMe("you called!")} className="btn btn-info"> Func w/arg SFC </button>
+        <button onClick={() => callMe("you called!")} className="btn btn-info"> Func w/arg SFC </button>
     );
 }
 

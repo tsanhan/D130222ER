@@ -7,7 +7,8 @@ class Home extends Component {
       url: "https://picsum.photos/1200/700",
       alt: "Random image",
     },
-    array: new Array(10)
+    array: new Array(10),
+    counter: 0
   };
 
   colorHeadLine = {
@@ -19,6 +20,12 @@ class Home extends Component {
     alert("opaa, that worked!");
   }
 
+  setCounter = () => {
+    let {counter} = this.state;
+    counter++;
+    this.setState({counter});
+  }
+
   render() {
     const { url, alt } = this.state.image;
     const array = [...this.state.array];
@@ -27,6 +34,9 @@ class Home extends Component {
       <div className="container">
         <PageHeader />
         <Card />
+        <p>counter num = {this.state.counter}</p>
+        <button onClick={this.setCounter} className="btn btn-primary">+</button>
+
         {array.map((item, index, array) => {
           console.log(array);
           return <div key={index}>{item}</div>;
