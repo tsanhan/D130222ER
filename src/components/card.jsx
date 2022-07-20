@@ -1,29 +1,29 @@
-const Card = () => {
-  const card = {
-    img: {
-      title: "first card",
-      url: "https://cdn.pixabay.com/photo/2022/01/25/16/01/sky-6966721_960_720.jpg",
-      alt: "sky pic",
-    },
-    description: "this is the first card",
-    phone: "050-1234567",
-    address: "la la land",
-    number: "1000000",
-  };
-
+const Card = ({ card }) => {
   const width = {
     width: "18rem",
-  }
+  };
+  const { img, description, phone, address, number } = card;
   return (
     <div className="card" style={width}>
-      <img src={card.img.url} className="card-img-top" alt={card.img.alt} />
+      <img src={img.url} className="card-img-top" alt={img.alt} />
       <div className="card-body">
-        <h5 className="card-title">{card.img.title}</h5>
-        <h6 className="card-subtitle mb-2 text-muted">{card.img.description}</h6>
+        <h5 className="card-title">{img.title}</h5>
+        <h6 className="card-subtitle mb-2 text-muted">
+          {img.description}
+        </h6>
         <div className="card-text">
-          <div> <span className="card-title">Tel:</span> {card.phone} </div>
-          <div> <span className="card-title">Address:</span> {card.address} </div>
-          <div> <span className="card-title">Card Number:</span> {card.number} </div>
+          <div>
+            {" "}
+            <span className="card-title">Tel:</span> {phone}{" "}
+          </div>
+          <div>
+            {" "}
+            <span className="card-title">Address:</span> {address}{" "}
+          </div>
+          <div>
+            {" "}
+            <span className="card-title">Card Number:</span> {card.number}{" "}
+          </div>
         </div>
       </div>
     </div>
