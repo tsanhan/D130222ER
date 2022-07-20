@@ -5,18 +5,23 @@ import FnWithArgSfc from "./components/fnWithArgSfc";
 import PassingEventtoFn from "./components/passingEventtoFn";
 import FatherCompSFC from "./components/fatherSfc";
 import FatherCompCC from "./components/fatherCC";
+import LifeCycleHooks from "./components/lifeCycleHooks";
 
 function App() {
   return (
     <div className="app">
-      <Home />
+      {
+      /* <Home />
       <FunctionInSfc />
       <FnWithArgInCc />
       <FnWithArgSfc />
       <PassingEventtoFn />
 
       <FatherCompSFC/>
-      <FatherCompCC />
+      <FatherCompCC /> */
+
+      <LifeCycleHooks />
+      }
     </div>
   );
 }
