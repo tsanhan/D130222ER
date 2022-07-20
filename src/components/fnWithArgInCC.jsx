@@ -8,7 +8,6 @@ class FnWithArgInCc extends Component {
     }
 
     render() { 
-        
         return (
             <button onClick={() => this.secondFn("victor")} className="btn btn-danger"> Func w/arg CC </button>
         );
