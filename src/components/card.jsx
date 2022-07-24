@@ -1,10 +1,10 @@
-const Card = ({ card }) => {
+const Card = ({card,onDelete,cardID}) => {
   const width = {
     width: "18rem",
   };
   const { img, description, phone, address, number } = card;
   return (
-    <div className="card" style={width}>
+    <div className="card" style={width} onClick={()=>onDelete(cardID)}>
       <img src={img.url} className="card-img-top" alt={img.alt} />
       <div className="card-body">
         <h5 className="card-title">{img.title}</h5>
@@ -22,7 +22,7 @@ const Card = ({ card }) => {
           </div>
           <div>
             {" "}
-            <span className="card-title">Card Number:</span> {card.number}{" "}
+            <span className="card-title">Card Number:</span> {number}{" "}
           </div>
         </div>
       </div>

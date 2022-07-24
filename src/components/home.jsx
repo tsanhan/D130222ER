@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import PageHeader from "./pageHeader";
 import Card from "./card";
-import CounterSFC  from "./counterSFC"
 class Home extends Component {
   state = {
     image: {
       url: "https://picsum.photos/1200/700",
       alt: "Random image",
     },
-    array: new Array(10),
-    counter: 0,
     cards: [
       {
         img: {
@@ -20,49 +17,42 @@ class Home extends Component {
         description: "this is the first card",
         phone: "050-1234567",
         address: "la la land",
-        number: "1000000",
+        number: "1212122",
+      },
+      {
+        img: {
+          title: "second card",
+          url: "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/https://img.poki.com/4206da66a0e5deca9115d19a4bc0c63f.png",
+          alt: "fish pic",
+        },
+        description: "this is the second card",
+        phone: "054-8238568",
+        address: "ma ma land",
+        number: "3232455",
       }
      
     ]
   };
 
-  colorHeadLine = {
-    color: "red",
-    fontSize: "2rem",
-  };
-
-  cbClick() {
-    alert("opaa, that worked!");
-  }
-
-  setCounter = (value, counter) => {
-    if(value === '+') counter++;
-    if(value === '-') counter--;
-    this.setState({ counter });
-
+  handleDelete = (cardID)=>{
+    let filteredCards = this.state.cards.filter((c,i)=>{
+      return i != cardID;
+    });
+    this.setState({cards:filteredCards});
   }
 
   render() {
-    const { url, alt } = this.state.image;
-    const array = [...this.state.array];
     const cards = [...this.state.cards];
-    const { counter } = this.state;
 
-    if(!array.length) return <p>No Items in the Array</p>
+    if(!cards.length) return <p>No cards in the Array</p>
     return (
       <div className="container">
         <PageHeader title={"Business Card App"} subTitle={cards.length ? "Here you will find business cards" : ''} />
+        <div style={{display:'flex',flexDirection:'row'}}>
         {
-          cards.map((c,k) => <Card card={c} key={k} />)
+          cards.map((c,k) => <Card card={c} cardID={k} key={k} onDelete={this.handleDelete}/>)
         }
-        in counter-container
-        <CounterSFC counter={counter} setCounter={this.setCounter} />
-
-        {array.map((item, index, array) => {
-          console.log(array);
-          return <div key={index}>{item}</div>;
-        })}
-        <button onClick={this.cbClick} className="btn btn-primary"> Func In CC </button>
+        </div>
       </div>
     );
   }

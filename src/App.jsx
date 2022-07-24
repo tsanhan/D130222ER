@@ -11,16 +11,7 @@ function App() {
   return (
     <div className="app">
       {
-      /* <Home />
-      <FunctionInSfc />
-      <FnWithArgInCc />
-      <FnWithArgSfc />
-      <PassingEventtoFn />
-
-      <FatherCompSFC/>
-      <FatherCompCC /> */
-
-      <LifeCycleHooks />
+       <Home />
       }
     </div>
   );
